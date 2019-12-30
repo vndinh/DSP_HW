@@ -1,0 +1,13 @@
+clear; clc;
+w = (-1000:1:1000)*pi/1000;
+a = 0.5;
+H = (1-1/a*exp(-1j*w)).*(1+1/a^2*exp(-2j*w))./((1-a*exp(-1j*w)).*(1+a^2*exp(-2j*w)));
+magnitudeH = abs(H);
+phaseH = angle(H);
+subplot(2,1,1); plot(w/pi,magnitudeH); grid on;
+axis([-1 1 7 9]);
+ylabel('|H(e^j^\omega)|'); title('Magnitude Response');
+xlabel('\omega/\pi');
+subplot(2,1,2); plot(w/pi,phaseH); grid on;
+ylabel('\angleH(e^j^\omega)'); title('Phase Response');
+xlabel('\omega/\pi');
